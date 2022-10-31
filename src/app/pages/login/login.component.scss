@@ -1,0 +1,106 @@
+//user logo image
+
+img{
+    height: 100px;
+    width: 100px;  
+}
+
+//form data div
+.form-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    transform: translate(-49%, -49%);
+    border: 1px solid #cfcfcf;
+    background-color: white;
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, .4);
+}
+
+//input and buttons
+input, button{
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    height: 30px;
+}
+
+input{
+    height: 35px; 
+    border: 1px solid #cfcfcf;
+    border-radius: 4px;
+}
+
+button{
+    height: 35px;
+    
+}
+
+//login button
+.login-btn{
+    border-radius: 0px;
+    border: 0px;
+   
+    background-color: #008586;
+    color: white;
+}
+.login-btn:hover {
+    background-color:black;
+    color:white;
+    transition: 0.6s;
+}
+//forgot password button
+.forgot-pass-btn{
+    border: 1px solid #008586;
+   
+    background-color: white;
+    color:#008586
+}
+.forgot-pass-btn:hover{
+    border: 2px solid black;
+    color:black;
+    transition: 0.6s;
+}
+//inputs, buttons div
+.inputs{
+    padding-left: 60px;
+    padding-right: 60px;
+    margin-bottom: 30px;
+}
+.buttons{
+    padding-left: 60px;
+    padding-right: 60px;
+    
+}
+
+//user icon and tittle container
+#logo-container{
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+//form
+form{
+height: fit-content;
+padding-bottom: 40px;
+
+}
+
+//div for background image
+.background{
+    background-image: url('../../../assets/bg2.jpg');
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+
+
+//div for register link
+#link-container{
+    padding-top: 20px;
+    text-align: center;
+}
