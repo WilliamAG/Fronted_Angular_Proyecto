@@ -5,20 +5,20 @@
             <img src="../../../assets/user.png">
             <h2>Inicio de Sesión</h2>
         </div>
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
             <div class="form-elements">
                 <div class="inputs">
-                    <input type="email">
-                    <input type="password">
+                    <input type="email" formControlName="email">
+                    <input type="password" formControlName="password">
                 </div>
                 <div class="buttons">
                     <button type="submit" class="login-btn">INGRESAR</button>
-                    <button type="submit" class="forgot-pass-btn">OLVIDE MI CONTRASEÑA</button>
+                    <button type="button" class="forgot-pass-btn">OLVIDE MI CONTRASEÑA</button>
                 </div>
                 
             </div>
             <div id="link-container">
-                <a href> No tengo una cuenta</a>  
+                <a routerLink="/register"> No tengo una cuenta</a>  
             </div>
             
         </form>
