@@ -5,24 +5,38 @@
             <img src="../../../assets/user.png">
             <h2>Inicio de Sesión</h2>
         </div>
-        <form>
+
+        <!--ngIf structural directive: allows you to show or hide elements of the DOM based on a condition.-->
+        <!--ngModel directive: bind the values of the HTML controls (input, select, and textarea) or any custom form controls, 
+            and stores the required user value in a variable.-->
+
+        <form [formGroup]="loginForm" method="POST">
             <div class="form-elements">
                 <div class="inputs">
-                    <input type="email">
-                    <input type="password">
+                    <input [(ngModel)]="login.email" formControlName="email" name="email"  type="email" placeholder="Ingresa tu correo">
+                    <div class="errors-container1" *ngIf="emailControl.invalid && (emailControl.touched )">
+                        <p class="errors-msg" *ngIf="emailControl.hasError('required')"><b>El campo es obligatorio</b></p>
+                    </div>
+
+                    <input [(ngModel)]="login.password" formControlName="password" name="password" type="password" placeholder="Ingresa tu contraseña" >
+                    <div class="errors-container1" *ngIf="passControl.invalid && (passControl.touched )">
+                        <p class="errors-msg" *ngIf="passControl.hasError('required')"><b>El campo es obligatorio</b></p>
+                    </div>
+                    <div class="errors-container" *ngIf="notExists || incorrect ">
+                        <p class="user-not-found">{{error_msg}}</p>
+                    </div>
                 </div>
+
                 <div class="buttons">
-                    <button type="submit" class="login-btn">INGRESAR</button>
+                    <button type="submit" class="login-btn" (click)="authUser()">INGRESAR</button>
                     <button type="submit" class="forgot-pass-btn">OLVIDE MI CONTRASEÑA</button>
                 </div>
                 
             </div>
+
             <div id="link-container">
-                <a href> No tengo una cuenta</a>  
+                <a routerLink="/register"> No tengo una cuenta</a>  
             </div>
-            
         </form>
-        
-    </div>
-    
+    </div>   
 </div>

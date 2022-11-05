@@ -1,4 +1,4 @@
-export interface dataSelect {
-    value: string;
-    option: string;
+export interface login {
+    email: string,
+    password: string
   }

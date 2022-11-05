@@ -1,8 +1,7 @@
 //user logo image
-
 img{
     height: 100px;
-    width: 100px;  
+    width: max-content;  
 }
 
 //form data div
@@ -15,6 +14,8 @@ img{
     border: 1px solid #cfcfcf;
     background-color: white;
     box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, .4);
+    border-radius: 8px;
+    display: inline-table;
 }
 
 //input and buttons
@@ -52,14 +53,13 @@ button{
 //forgot password button
 .forgot-pass-btn{
     border: 1px solid #008586;
-   
     background-color: white;
     color:#008586
 }
 .forgot-pass-btn:hover{
     border: 2px solid black;
     color:black;
-    transition: 0.6s;
+    transition: 0.1s;
 }
 //inputs, buttons div
 .inputs{
@@ -73,9 +73,10 @@ button{
     
 }
 
-//user icon and tittle container
+//user icon and tittle container 
 #logo-container{
     text-align: center;
+    display:block;
     padding-top: 20px;
     padding-bottom: 30px;
 }
@@ -84,7 +85,6 @@ button{
 form{
 height: fit-content;
 padding-bottom: 40px;
-
 }
 
 //div for background image
@@ -93,14 +93,29 @@ padding-bottom: 40px;
     height: 100vh;
     width: 100%;
     background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  
+    background-repeat:no-repeat;
+    background-size:cover;  
 }
-
 
 //div for register link
 #link-container{
     padding-top: 20px;
     text-align: center;
+}
+
+
+//"errors message"
+.invalid-credent,.user-not-found{
+    background-color: #f8d7da;
+    border-radius: 4px;
+    padding: 10px;
+    color: #721c24;
+}
+.errors-container{
+    padding-top: 10px;
+}
+.errors-msg{
+    color:#9b2630;
+    font-size: 15px;
+    font-weight: 100;
 }
