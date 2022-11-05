@@ -1,20 +1,11 @@
-html
-{
-    min-height: 100%;
-    max-width: 100%;
-    position: relative;
-}
-
-body
-{
+.content-main{
     background-image: url("../../../assets/home-background.jpg");
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
-    padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
+    height: 97vh;
+    margin-top: 30px;
 }
 
 .footer
@@ -77,11 +68,16 @@ body
 {
     background-color:  white;
     color:  rgb(0,106, 106);
+    &:hover
+    {
+        color: white;
+    }
 }
 
 .Texto-1
 {
     font-size: 3rem;
+    margin-top: 10px;
 }
 
 .Texto-2

@@ -3,28 +3,29 @@
         <img src="../../../assets/logo.png" width="72" height="auto" alt="">
     </div>
 </header>
-
-<main role="main" class="container">
-    <div class="container-fluid">
-        <pre class="Texto-1">Bienvenido a
+<div class="content-main">
+    <main role="main" class="container">
+        <div class="container-fluid">
+            <pre class="Texto-1">Bienvenido a
 PicSpace</pre>
-        <div style="padding-left: 2rem;">
-            <br>
-            <p class="Texto-2"> ✔ Ahorra Espacio.</p>
-            <p class="Texto-2"> ✔ Comparte tus fotos con tus contactos.</p>
-            <p class="Texto-2"> ✔ Accede desde cualquier dispositivo.</p>
-            <br>
-            <br>
             <div style="padding-left: 2rem;">
-                <!--Posible Error por abrir directamente el HTML-->
-                <button class="btn btn-register" type="submit"
-                    onclick="location.href='../register/register.component.html'">REGISTRARME</button>
-                <button class="btn btn-login" onclick="location.href='../login/login.component.html'">INICIAR
-                    SESION</button>
+                <br>
+                <p class="Texto-2"> ✔ Ahorra Espacio.</p>
+                <p class="Texto-2"> ✔ Comparte tus fotos con tus contactos.</p>
+                <p class="Texto-2"> ✔ Accede desde cualquier dispositivo.</p>
+                <br>
+                <br>
+                <div style="padding-left: 2rem;">
+                    <!--Posible Error por abrir directamente el HTML-->
+                    <button class="btn btn-register" style="margin-right: 10px;" type="submit" routerLink="/register" >REGISTRARME</button>
+                    <button class="btn btn-login" routerLink="/login">INICIAR
+                        SESION</button>
+                </div>
             </div>
         </div>
-    </div>
-</main>
+    </main>
+</div>
+
 
 <footer class="footer bg-dark fixed-bottom">
     <div class="text-center">
