@@ -1,0 +1,87 @@
+.content-main{
+    background-image: url("../../../assets/home-background.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 97vh;
+    margin-top: 30px;
+}
+
+.footer
+{
+    color: white;
+    position: absolute;
+    width: 100%;
+    height: 5rem;
+    padding: 1rem;
+}
+
+.nav-link
+{
+    font-size: 1.5rem;
+    padding: 1rem 4rem;
+}
+
+.navbar-brand
+{
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+.container
+{
+    background-color: transparent;
+}
+
+.container-fluid
+{
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    padding: 2.5rem 5.5rem 2.5rem 5.5rem;
+    background-color: transparent;
+}
+
+.btn
+{
+    border: 2px solid;
+    border-color: rgb(160,160,160);
+    border-radius: 0% !important;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.btn:hover
+{
+    background-color: rgb(130,130,130);
+}
+
+.btn-register
+{
+    background-color:  rgb(0,106, 106);
+    color: white
+}
+
+.btn-login
+{
+    background-color:  white;
+    color:  rgb(0,106, 106);
+    &:hover
+    {
+        color: white;
+    }
+}
+
+.Texto-1
+{
+    font-size: 3rem;
+    margin-top: 10px;
+}
+
+.Texto-2
+{
+    font-size: 1.5rem;
+    color: rgb(70, 70, 70);
+}

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms'
-import { login } from 'src/constants/interfaces';
-import { UsersService } from '../../../services/users.service';
-import {Router} from '@angular/router'
-import { HttpErrorResponse } from '@angular/common/http';
-import { ThisReceiver } from '@angular/compiler';
+
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,10 +11,33 @@ import { ThisReceiver } from '@angular/compiler';
 })
 export class LoginComponent implements OnInit {
 
-  //dependency injection: to consume the service
-  constructor(private authService: UsersService, private router: Router) { }
+
+  public loginForm !: FormGroup;
+  constructor(private authService : AuthService, private fb : FormBuilder, private router : Router) { }
+
 
   ngOnInit(): void {
+    this.loginForm = this.initForm();
+
+    
+  }
+
+
+  public initForm():FormGroup{
+    return this.fb.group({
+      email : ['',[Validators.required]],
+      password: ['',[Validators.required]]
+    })
+  }
+
+  public login():void{
+
+    const {email, password} = this.loginForm.value;
+
+    this.authService.login(email,password).subscribe(res => {
+      console.log(res)
+    })
+
   }
 
   //instance of interface login

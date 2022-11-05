@@ -1,1 +1,43 @@
-<p>register works!</p>
+    <header class="navbar bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="../../../assets/logo.png" width="72" height="auto" alt="">
+        </a>
+        <a class="nav-link text-white" routerLink="/">INICIO</a>
+    </header>
+    
+    <form class="text-center p-5 mx-auto my-5" id="formRegister" [formGroup]="RegisterForm" (ngSubmit)="register()">
+        <img class="mb-4" src="../../../assets/logo.png" alt="" width="72" height="auto">
+        <h1 class="h3 mb-3 fw-normal">Registro</h1>
+    
+        <div class="form-floating">
+            <input type="text" class="form-control mb-3" id="floatingUsername" formControlName="user">
+            <label for="floatingInput">Nombre de usuario</label>
+        </div>
+        <div class="form-floating">
+            <input type="email" class="form-control mb-3" id="floatingEmail" formControlName="email">
+            <label for="floatingPassword">Correo</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control mb-3" id="floatingPassword" formControlName="password">
+            <label for="floatingPassword">Contraseña</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control mb-3" id="floatingVerifiedPassword" formControlName="confirm">
+            <label for="floatingPassword">Verificar Contraseña</label>
+        </div>
+    
+        <div class="checkbox mb-3">
+            <label>
+            <input class="m-2" type="checkbox" value="remember-me">Acepto los terminos y condiciones
+            </label>
+        </div>
+        <p class="mb-4 text-muted">¿Ya tienes una cuenta? <a routerLink="/login">Ingresa aquí</a></p>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Registrarse</button>
+    </form>
+    
+<footer class="footer bg-dark fixed-bottom">
+    <div class="text-center py-4">
+        <a href="#" class="text-white">Términos y Condiciones</a>
+        <p class="text-white">Copyright © 2022</p>
+    </div>
+</footer>
