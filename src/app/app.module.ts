@@ -8,6 +8,10 @@ import { HomeComponent } from './pages/home/home.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ViewImageComponent } from './pages/view-image/view-image.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { CardsImageComponent } from './components/cards-image/cards-image.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +19,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
+    ViewImageComponent,
+    NavbarComponent,
+    FooterComponent,
+    CardsImageComponent,
     
   ],
   imports: [

@@ -1,20 +1,19 @@
-.nav-link {
-    font-size: 20px;
-    padding: 20px 100px;
-    font-family: 'Arial';
-}
-
-.navbar-brand {
-    padding: 20px 100px;
-}
-
-body {
-    background-color: rgb(255, 0, 0);
-}
-
 #formRegister {
     width: 450px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background: #f8f8f8;
+    border: 1px solid #cfcfcf;
+    background-color: white;
+    box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, .4);
+}
+
+.background{
+    background-image: url('../../../assets/bg2.jpg');
+    height: 118vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -48px;
+    padding-top: 20px; 
 }
