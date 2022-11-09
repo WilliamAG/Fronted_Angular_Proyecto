@@ -1,0 +1,48 @@
+<div class="modal-view" *ngIf="show == true" [@enterModal]=" showModal ? 'end' : 'void'">
+    <div class="modal-view-content">
+        <ng-template [ngTemplateOutlet]="header"></ng-template>
+        <ng-template [ngTemplateOutlet]="container"></ng-template>
+        <ng-template [ngTemplateOutlet]="footer"></ng-template>
+    </div>
+</div>
+
+
+<ng-template #header>
+    <div class="modal-view-header">
+        <span class="material-icons">
+            delete
+        </span>
+        <a href="../../../assets/test.png" class="material-icons" download="test_XD">
+            file_download
+        </a>
+        <span class="material-icons" (click)="show = false">
+            close
+        </span>
+    </div>
+</ng-template>
+
+<ng-template #container>
+    <div class="modal-view-container">
+        <span class="material-icons" (click)="lastImage()">
+            chevron_left
+        </span>
+        <div [style]="'background-image:url('+'../../../assets/test.png'+');'" [@sliceImage]="stateImage"></div>
+        <span class="material-icons" (click)="nextImage()">
+            navigate_next
+        </span>
+    </div>
+</ng-template>
+
+<ng-template #footer>
+    <hr>
+    <div class="modal-view-footer" [@DataImage]=" showData ? 'show' : 'hide'">
+        <div style="text-align: left;">
+            <span><b>Nombre: </b>el icono del valle</span>
+            <span><b>Fecha: </b>27/34/34</span>
+        </div>
+        <div style="text-align: right;">
+            <span><b>Peso: </b>737383 Kb</span>
+            <span><b>Álbum: </b>nuevo</span>
+        </div>
+    </div>
+</ng-template>

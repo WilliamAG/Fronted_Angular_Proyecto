@@ -1,4 +1,5 @@
 <header class="navbar navbar-dark bg-dark fixed-top">
+    
     <a class="navbar-brand" href="#" *ngIf="type!='customer'">
         <img src="../../../assets/logo.png" width="72" height="auto" alt="">
     </a>
@@ -9,8 +10,10 @@
     </div>
 
     <form class="form-inline" *ngIf="type=='customer'">
-        <img  style="margin-right: 10px;" src="../../../assets/upload.png" alt="upload">
-        <input style="display: none;" class="form-control mr-sm-2" type="file">
+        <label for="file-input">
+            <img  style="margin-right: 10px;" src="../../../assets/upload.png" alt="upload" >
+        </label>
+        <input style="display: none;" id="file-input" type="file" accept="image/*" multiple>
     </form>
 
     <a *ngIf="type=='auth'" class="nav-link text-white" routerLink="/">INICIO</a>

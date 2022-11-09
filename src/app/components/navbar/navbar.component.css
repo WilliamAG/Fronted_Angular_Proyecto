@@ -11,3 +11,7 @@
 p{
     margin: 0px;
 }
+
+.form-inline img{
+    cursor: pointer;
+}

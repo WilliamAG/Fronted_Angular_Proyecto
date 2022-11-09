@@ -4,7 +4,7 @@ import { ROUTES } from 'src/constants';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { ViewImageComponent } from './pages/view-image/view-image.component';
+import { ViewImageComponent2 } from './pages/view-image/view-image.component';
 
 
 const routes: Routes = [
@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: ROUTES.CUSTOMER.ROOT,
-    component: ViewImageComponent,
+    component: ViewImageComponent2,
   },
 ];
 

@@ -1,0 +1,12 @@
+.background{
+    background-color: #e6e6e6;
+    height: 100vh;
+    padding-top: 104px;
+}
+
+.container-galery{
+    display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+    justify-content: space-evenly;
+}
