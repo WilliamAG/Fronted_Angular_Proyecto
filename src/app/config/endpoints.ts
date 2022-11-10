@@ -7,6 +7,7 @@ export const ENDPOINTS = {
     ROOT: `${environment.server}/admin`,
     BINNACLE : `${environment.server}/admin/binnacle`,
     MAINTENANCE : `${environment.server}/admin/maintenance`,
+    GALLERY : `${environment.server}/gallery`,
     CUSTOMER_ROOT : `${environment.server}/customer`
 
 }
