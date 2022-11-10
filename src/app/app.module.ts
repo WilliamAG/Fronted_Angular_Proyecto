@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { GalleryComponent } from './pages/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
+    GalleryComponent,
     
   ],
   imports: [
