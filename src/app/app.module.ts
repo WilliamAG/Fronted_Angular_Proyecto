@@ -9,11 +9,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ViewImageComponent2 } from './pages/view-image/view-image.component';
 import { ViewImageComponent } from './components/view-image/view-image.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { CardsImageComponent } from './components/cards-image/cards-image.component';
 
 @NgModule({
   declarations: [
@@ -23,9 +21,7 @@ import { CardsImageComponent } from './components/cards-image/cards-image.compon
     HomeComponent,
     ViewImageComponent,
     NavbarComponent,
-    FooterComponent,
-    CardsImageComponent,
-    ViewImageComponent2,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
