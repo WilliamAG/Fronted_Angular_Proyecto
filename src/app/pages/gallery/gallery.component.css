@@ -28,3 +28,19 @@ header {
     font-size: 20px;
     font-family: 'Arial';
 }
+
+#album {
+    margin: 0 auto;
+    padding: 15px;
+}
+
+#albumImage {
+    width: 200px;
+    height: auto;
+    padding: 10px;
+}
+
+#album img:hover {
+    opacity: 0.8;
+    border: 5px solid #fff;
+}
