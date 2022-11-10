@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ViewImageComponent } from './components/view-image/view-image.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -21,16 +22,18 @@ import { FooterComponent } from './components/footer/footer.component';
     HomeComponent,
     ViewImageComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    GalleryComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-
     ReactiveFormsModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

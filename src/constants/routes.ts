@@ -10,7 +10,8 @@ const ROUTES = {
     },
     CUSTOMER: {
       ROOT: 'customer'
-    }
+    },
+    GALLERY: 'gallery',
   } as const;
   
   export default ROUTES;

@@ -1,0 +1,25 @@
+<header class="navbar bg-dark">
+    <a class="navbar-brand text-light" routerLink="/">
+        TU GALERIA EN LA NUBE
+        <br>
+        PicSpace
+    </a>
+    <input type="file" id="upload" (change)="fileUpload($event)" accept=".png, .jpg" hidden/>
+    <label class="text-light" for="upload">
+        Cargar Imagen
+        <img src="../../../assets/upload.png" width="62" height="auto" alt="">
+    </label>
+</header>
+
+<section id="gallery">
+    <div class="row text-center">
+        <div *ngFor="let image of images" class="col-lg-2 col-md-4 col-sm-6">
+            <img id="galleryImage" [src]="image.url" alt="Galeria">
+            <a [href]="image.url" [download]="image.filename" target="_blank">
+                <img id="downloadIcon" src="../../../assets/download-icon.png" alt="Descargar">
+            </a>
+            <img id="deleteIcon" src="../../../assets/delete-icon.png" alt="Borrar">
+            <p>{{image.filename}}</p>
+        </div>
+    </div>
+</section>

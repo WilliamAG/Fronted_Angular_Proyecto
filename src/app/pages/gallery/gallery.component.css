@@ -1,0 +1,30 @@
+header {
+    padding: 20px
+}
+
+#gallery {
+    margin: 0 auto;
+    padding: 15px;
+}
+
+#galleryImage {
+    width: 300px;
+    height: auto;
+    padding: 10px;
+}
+
+#downloadIcon, #deleteIcon {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+}
+
+#gallery img:hover {
+    opacity: 0.8;
+    border: 5px solid #fff;
+}
+
+.nav-link {
+    font-size: 20px;
+    font-family: 'Arial';
+}
