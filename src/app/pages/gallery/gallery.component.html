@@ -13,8 +13,8 @@
 
 <section *ngIf="modeGallery" id="gallery">
     <div class="row text-center">
-        <div *ngFor="let image of images" class="col-lg-2 col-md-4 col-sm-6">
-            <img id="galleryImage" [src]="image.url" alt="Galeria">
+        <div *ngFor="let image of images; let ident = index" class="col-lg-2 col-md-4 col-sm-6">
+            <img id="galleryImage" [src]="image.url" alt="Galeria" (click)="openImage(ident)">
             <a [href]="image.url" [download]="image.fileName" target="_blank">
                 <img id="downloadIcon" src="../../../assets/download-icon.png" alt="Descargar">
             </a>
@@ -33,3 +33,5 @@
         </div>
     </div>
 </section>
+
+<app-view-image-modal></app-view-image-modal>

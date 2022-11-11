@@ -1,0 +1,20 @@
+<header class="navbar navbar-dark bg-dark fixed-top">
+    
+    <a class="navbar-brand" href="#" *ngIf="type!='customer'">
+        <img src="../../../assets/logo.png" width="72" height="auto" alt="">
+    </a>
+
+    <div class="navbar-brand" *ngIf="type=='customer'">
+        <p style="font-size: 15px;">La galeria en la nube</p>
+        <p>PicSpace</p>
+    </div>
+
+    <form class="form-inline" *ngIf="type=='customer'">
+        <label for="file-input">
+            <img  style="margin-right: 10px;" src="../../../assets/upload.png" alt="upload" >
+        </label>
+        <input style="display: none;" id="file-input" type="file" accept="image/*" multiple>
+    </form>
+
+    <a *ngIf="type=='auth'" class="nav-link text-white" routerLink="/">INICIO</a>
+</header>

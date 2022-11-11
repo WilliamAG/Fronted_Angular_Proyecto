@@ -1,0 +1,17 @@
+.nav-link {
+    font-size: 20px;
+    padding: 20px 100px;
+    font-family: 'Arial';
+}
+
+.navbar-brand {
+    padding: 5px 50px;
+}
+
+p{
+    margin: 0px;
+}
+
+.form-inline img{
+    cursor: pointer;
+}

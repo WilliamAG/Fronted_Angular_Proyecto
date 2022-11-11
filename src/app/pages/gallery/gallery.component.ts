@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Album } from 'src/app/shared/interfaces/album.interface';
 import { Image } from 'src/app/shared/interfaces/image.interface';
 import { GalleryService } from 'src/app/shared/services/gallery.service';
+import { ImagesService } from 'src/app/shared/services/images.service';
 
 @Component({
   selector: 'app-gallery',
@@ -18,7 +19,7 @@ export class GalleryComponent implements OnInit {
 
   userId: number = 0;
 
-  constructor(private galleryService: GalleryService) {
+  constructor(private galleryService: GalleryService, private ImagesService:ImagesService) {
     this.images = [];
     this.albums = [];
     galleryService.getAlbums(this.userId).subscribe((albums: any) => {
@@ -40,6 +41,8 @@ export class GalleryComponent implements OnInit {
       for (let i = 0; i < images.length; i++) {
         this.images.push(images[i]);
       };
+      this.ImagesService.setImages(this.images);
+      this.ImagesService.setAlbum(album.name);
     });
     this.modeGallery = true;
     this.modeAlbum = false;
@@ -56,5 +59,9 @@ export class GalleryComponent implements OnInit {
     this.images.push({
       url: "https://explore.zoom.us/docs/image/MTM.png", fileName: 'Image add'
     });
+  }
+
+  public openImage(id:number){
+    this.ImagesService.setValueSelect(id);
   }
 }

@@ -1,0 +1,48 @@
+<div class="modal-view" *ngIf="show == true" [@enterModal]=" showModal ? 'end' : 'void'">
+    <div class="modal-view-content">
+        <ng-template [ngTemplateOutlet]="header"></ng-template>
+        <ng-template [ngTemplateOutlet]="container"></ng-template>
+        <ng-template [ngTemplateOutlet]="footer"></ng-template>
+    </div>
+</div>
+
+
+<ng-template #header>
+    <div class="modal-view-header">
+        <span class="material-icons">
+            delete
+        </span>
+        <a [href]="images[selected].url" class="material-icons" [download]="images[selected].fileName">
+            file_download
+        </a>
+        <span class="material-icons" (click)="show = false">
+            close
+        </span>
+    </div>
+</ng-template>
+
+<ng-template #container>
+    <div class="modal-view-container">
+        <span class="material-icons" (click)="lastImage()">
+            chevron_left
+        </span>
+        <div [style]="'background-image:url('+images[selected].url+');'" [@sliceImage]="stateImage"></div>
+        <span class="material-icons" (click)="nextImage()">
+            navigate_next
+        </span>
+    </div>
+</ng-template>
+
+<ng-template #footer>
+    <hr>
+    <div class="modal-view-footer" [@DataImage]=" showData ? 'show' : 'hide'">
+        <div style="text-align: left;">
+            <span><b>Nombre: </b>{{images[selected].fileName}}</span>
+            <span><b>Fecha: </b>{{images[selected].uploadDate}}</span>
+        </div>
+        <div style="text-align: right;">
+            <span><b>Peso: </b>{{images[selected].sizeInBytes}}</span>
+            <span><b>Álbum: </b>{{album}}</span>
+        </div>
+    </div>
+</ng-template>
