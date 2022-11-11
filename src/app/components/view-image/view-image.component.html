@@ -12,7 +12,7 @@
         <span class="material-icons">
             delete
         </span>
-        <a href="../../../assets/test.png" class="material-icons" download="test_XD">
+        <a [href]="images[selected].url" class="material-icons" [download]="images[selected].fileName">
             file_download
         </a>
         <span class="material-icons" (click)="show = false">
@@ -26,7 +26,7 @@
         <span class="material-icons" (click)="lastImage()">
             chevron_left
         </span>
-        <div [style]="'background-image:url('+'../../../assets/test.png'+');'" [@sliceImage]="stateImage"></div>
+        <div [style]="'background-image:url('+images[selected].url+');'" [@sliceImage]="stateImage"></div>
         <span class="material-icons" (click)="nextImage()">
             navigate_next
         </span>
@@ -37,12 +37,12 @@
     <hr>
     <div class="modal-view-footer" [@DataImage]=" showData ? 'show' : 'hide'">
         <div style="text-align: left;">
-            <span><b>Nombre: </b>el icono del valle</span>
-            <span><b>Fecha: </b>27/34/34</span>
+            <span><b>Nombre: </b>{{images[selected].fileName}}</span>
+            <span><b>Fecha: </b>{{images[selected].uploadDate}}</span>
         </div>
         <div style="text-align: right;">
-            <span><b>Peso: </b>737383 Kb</span>
-            <span><b>Álbum: </b>nuevo</span>
+            <span><b>Peso: </b>{{images[selected].sizeInBytes}}</span>
+            <span><b>Álbum: </b>{{album}}</span>
         </div>
     </div>
 </ng-template>

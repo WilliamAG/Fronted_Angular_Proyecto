@@ -1,28 +1,46 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { ENDPOINTS } from 'src/app/config/endpoints';
-import { imageIdentifier } from '../interfaces/view.interface';
+import { Image } from '../interfaces/image.interface';
 
-const identifier:imageIdentifier={
-  id:-1
-}
+const datasetImages: Image[] = []
+const select: number = -1
+const album: string|undefined = ""
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ImagesService {
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  private class$ = new BehaviorSubject<imageIdentifier>(identifier)
+  private dataset$ = new BehaviorSubject<Image[]>(datasetImages)
+  private selected$ = new BehaviorSubject<number>(select)
+  private albumSelect$ = new BehaviorSubject<string|undefined>(album)
 
-  get selectedImage$(): Observable<imageIdentifier>{
-    return this.class$.asObservable()
+  get Images$(): Observable<Image[]> {
+    return this.dataset$.asObservable()
   }
 
-  setImage(d:imageIdentifier):void{
-    this.class$.next(d)
+  setImages(d: Image[]): void {
+    this.dataset$.next(d)
+  }
+
+  get selectedImage$(): Observable<number> {
+    return this.selected$.asObservable()
+  }
+
+  setValueSelect(d: number): void {
+    this.selected$.next(d)
+  }
+
+  get album$(): Observable<string|undefined> {
+    return this.albumSelect$.asObservable()
+  }
+
+  setAlbum(d: string|undefined): void {
+    this.albumSelect$.next(d)
   }
 
 }
