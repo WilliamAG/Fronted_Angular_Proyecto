@@ -5,6 +5,7 @@ import { UsersService } from '../../../services/users.service';
 import {Router} from '@angular/router'
 import { HttpErrorResponse } from '@angular/common/http';
 import { ThisReceiver } from '@angular/compiler';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +14,7 @@ import { ThisReceiver } from '@angular/compiler';
 export class LoginComponent implements OnInit {
 
   //dependency injection: to consume the service
-  constructor(private authService: UsersService, private router: Router) { }
+  constructor(private authService: UsersService, private router: Router, private cookieService: CookieService) { }
 
   ngOnInit(): void {
   }
@@ -44,35 +45,19 @@ export class LoginComponent implements OnInit {
   }
 
   authUser(){
-    this.authService.authenticate(this.login).subscribe( res =>{
-      var status:UserInfo = <any>res
-     
-      if (status.msg='El usuario no existe'){
-          this.notExists=true;
-          this.error_msg=status.msg;
-      }else if(status.ok=true){ //user exists
-          if(status.usr.userTypeId==1){
-              console.log('Es usuario administrador')
-          }else if(status.usr.userTypeId==2){
-              console.log('Es usuario registrado')
-              //this.router.navigateByUrl('/') redirect to user profile
-          }else if(status.usr.userTypeId==3){
-              console.log('Es invitado')
-          }else {
-              console.log('Tipo de usuario no válido')
-          }
-      }else{
-          this.error_msg="Ha ocurrido un error"
+    this.authService.authenticate(this.login).subscribe( {
+      next: (res) => {
+        this.cookieService.delete('token');
+        this.cookieService.set('token', res.token);
+        this.router.navigate(['/gallery']);
+      },
+      error: (error: HttpErrorResponse) => {
+        console.log(error);
+        alert('Datos incorrectos');
       }
-    }, error=>{
-        if(error.error.msg='Correo o contraseña incorrectos'){
-            this.incorrect=true
-            this.error_msg=error.error.msg
-        }else{
-          this.error_msg='Ha ocurrido un error'
-        }
-    })
+    });
   }
+
 }
 
 //used for take the info that the query returns
