@@ -9,6 +9,7 @@
         Cargar Imagen
         <img src="../../../assets/upload.png" width="62" height="auto" alt="">
     </label>
+    <button *ngIf="modeAlbum" class="btn btn-outline-light" (click)="logout()">Logout</button>
 </header>
 
 <section *ngIf="modeGallery" id="gallery">
