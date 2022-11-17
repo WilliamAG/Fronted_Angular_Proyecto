@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { Album } from 'src/app/shared/interfaces/album.interface';
 import { Image } from 'src/app/shared/interfaces/image.interface';
 import { GalleryService } from 'src/app/shared/services/gallery.service';
@@ -17,14 +18,18 @@ export class GalleryComponent implements OnInit {
   modeGallery = false;
   modeAlbum = true
 
-  userId: number = 0;
-
   constructor(private galleryService: GalleryService, private ImagesService:ImagesService) {
     this.images = [];
     this.albums = [];
-    galleryService.getAlbums(this.userId).subscribe((albums: any) => {
-      for (let i = 0; i < albums.length; i++) {
-        this.albums.push(albums[i]);
+
+    galleryService.getAlbums().subscribe({
+      next: (albums: any) => {
+        for (let i = 0; i < albums.length; i++) {
+          this.albums.push(albums[i]);
+        }
+      },
+      error: (error: any) => {
+        console.log("No hay albumes");
       }
     });
   }
@@ -36,7 +41,7 @@ export class GalleryComponent implements OnInit {
       return;
     }
     this.images = [];
-    this.galleryService.getImages(this.userId, album.albumId).subscribe((images: any) => {
+    this.galleryService.getImages(album.albumId).subscribe((images: any) => {
       for (let i = 0; i < images.length; i++) {
         this.images.push(images[i]);
       };
@@ -72,4 +77,7 @@ export class GalleryComponent implements OnInit {
     this.ImagesService.setImages(this.images);
   }
 
+  logout() {
+    this.galleryService.logout()
+  }
 }
