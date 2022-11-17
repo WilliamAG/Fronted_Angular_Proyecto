@@ -41,7 +41,8 @@ export class GalleryService {
   }
 
 
-//   public uploadImage(usuario : USR):Observable<User>{
-//     return this.http.post<User>(ENDPOINTS.REGISTER,usuario);
-//   }
+  public removeImage(imageId: number):Observable<Image>{
+    const body = {imageId};
+    return this.http.delete<Image>(`${ENDPOINTS.GALLERY}/${imageId}`);
+  }
 }

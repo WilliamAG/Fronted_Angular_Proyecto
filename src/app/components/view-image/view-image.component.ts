@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ImagesService } from "../../shared/services/images.service";
 import { Image } from "../../shared/interfaces/image.interface";
 import { showModal, sliceImageModal, showDataImage } from "../../animations/modal.animations";
+import { GalleryService } from 'src/app/shared/services/gallery.service';
 
 @Component({
   selector: 'app-view-image-modal',
@@ -22,7 +23,7 @@ export class ViewImageComponent {
   public selected: number = -1
   public album: string | undefined = ""
 
-  constructor(private ImagesService: ImagesService) {
+  constructor(private ImagesService: ImagesService, private galleryService: GalleryService) {
     this.ImagesService.Images$.subscribe((d: Image[]) => {
       if (d.length != 0) {
         this.images = d
@@ -88,4 +89,14 @@ export class ViewImageComponent {
     }, 300)
   }
 
+  deleteImage() {
+    const imageId = this.images[this.selected].imageId || -1
+    this.galleryService.removeImage(imageId).subscribe((d: any) => {
+      console.log(d)
+    })
+    this.images.splice(this.selected, 1)
+    
+
+    this.hideModal()
+  }
 }
