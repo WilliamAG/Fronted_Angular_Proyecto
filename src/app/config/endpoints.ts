@@ -8,6 +8,8 @@ export const ENDPOINTS = {
     BINNACLE : `${environment.server}/admin/binnacle`,
     MAINTENANCE : `${environment.server}/admin/maintenance`,
     GALLERY : `${environment.server}/gallery`,
-    CUSTOMER_ROOT : `${environment.server}/customer`
+    CUSTOMER_ROOT : `${environment.server}/customer`,
+    UPLOADS: `${environment.server}/uploads`,
+    IMAGE: environment.image,
 
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ENDPOINTS } from 'src/app/config/endpoints';
 import { Image } from '../interfaces/image.interface';
@@ -8,6 +8,7 @@ import jwt_decode from "jwt-decode";
 import { CookieService } from 'ngx-cookie-service';
 import { UserToken } from '../interfaces/user.interface';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -40,8 +41,24 @@ export class GalleryService {
     this.router.navigate(['/login']);
   }
 
+  uploadFile(file: File, albumId: number): Observable<any> {
+    const formData = new FormData();
+    formData.append('image', file);
+    formData.append('albumId', albumId.toString());
+    const headers = new HttpHeaders({ 'enctype': 'multipart/form-data' });
+    return this.http.post(`${ENDPOINTS.UPLOADS}`, formData, { headers: headers });
+  }
 
-//   public uploadImage(usuario : USR):Observable<User>{
-//     return this.http.post<User>(ENDPOINTS.REGISTER,usuario);
-//   }
+  public getValidUrl(s: String): String {
+    var result = s.match(/http(s)?:\/\//g);
+    if (result === null) {
+      return `${ENDPOINTS.IMAGE}/${s}`;
+    } else {
+      return s;
+    }
+  };
+
+  deleteImage(imageId: number): Observable<any> {
+    return this.http.delete(`${ENDPOINTS.GALLERY}/${imageId}`);
+  }
 }
