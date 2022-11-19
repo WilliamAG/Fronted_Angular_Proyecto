@@ -19,7 +19,7 @@
             <a [href]="image.url" [download]="image.fileName" target="_blank">
                 <img id="downloadIcon" src="../../../assets/download-icon.png" alt="Descargar">
             </a>
-            <img id="deleteIcon" (click)="removeImage(image)" src="../../../assets/delete-icon.png" alt="Borrar">
+            <img id="deleteIcon" (click)="deleteImage(image)" src="../../../assets/delete-icon.png" alt="Borrar">
             <p>{{image.fileName}}</p>
         </div>
     </div>

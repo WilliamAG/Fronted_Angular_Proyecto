@@ -1,5 +1,5 @@
 export interface Image {
-    imageId?: number;
+    imageId? : number;
     url ?:        string;
     fileName?:     string;
     sizeInBytes?: number;
