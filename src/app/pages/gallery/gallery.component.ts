@@ -36,9 +36,7 @@ export class GalleryComponent implements OnInit {
     });
   }
   
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
   
   goGallery(album: Album) {
     if (album.albumId == undefined) {
@@ -92,6 +90,17 @@ export class GalleryComponent implements OnInit {
 
   public openImage(id:number){
     this.ImagesService.setValueSelect(id);
+  }
+
+  removeImage(image: Image) {
+    if (image.imageId == undefined) {
+      return;
+    }
+    this.galleryService.removeImage(image.imageId).subscribe((image: any) => {
+      console.log(image);
+    });
+    this.images = this.images.filter((img) => img.imageId != image.imageId);    
+    this.ImagesService.setImages(this.images);
   }
 
   logout() {
