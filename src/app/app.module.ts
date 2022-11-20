@@ -14,6 +14,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { GraphicComponent } from './components/graphic/graphic.component';
 import { NgChartsModule } from 'ng2-charts';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { NgChartsModule } from 'ng2-charts';
     FooterComponent,
     GalleryComponent,
     GraphicComponent,
+    DashboardComponent,
   ],
 
   imports: [
