@@ -9,6 +9,7 @@
         Cargar Imagen
         <img src="../../../assets/upload.png" width="62" height="auto" alt="">
     </label>
+    <button *ngIf="modeAlbum" class="btn btn-outline-light" (click)="logout()">Logout</button>
 </header>
 
 <section *ngIf="modeGallery" id="gallery">
@@ -18,7 +19,7 @@
             <a [href]="image.url" [download]="image.fileName" target="_blank">
                 <img id="downloadIcon" src="../../../assets/download-icon.png" alt="Descargar">
             </a>
-            <img id="deleteIcon" src="../../../assets/delete-icon.png" alt="Borrar">
+            <img id="deleteIcon" (click)="deleteImage(image)" src="../../../assets/delete-icon.png" alt="Borrar">
             <p>{{image.fileName}}</p>
         </div>
     </div>

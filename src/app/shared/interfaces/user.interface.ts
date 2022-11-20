@@ -19,3 +19,10 @@ export interface USR {
     email ?: string;
     password ?: string;
 }
+
+export interface UserToken {
+    idusuario: number,
+    nombre: string,
+    iat: number,
+    exp: number
+}

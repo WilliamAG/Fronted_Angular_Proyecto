@@ -9,7 +9,7 @@
 
 <ng-template #header>
     <div class="modal-view-header">
-        <span class="material-icons">
+        <span (click)="deleteImage()" class="material-icons">
             delete
         </span>
         <a [href]="images[selected].url" class="material-icons" [download]="images[selected].fileName">

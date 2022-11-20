@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ROUTES } from 'src/constants';
+import { AuthGuard } from './auth.guard';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -26,7 +27,8 @@ const routes: Routes = [
   },
   {
     path: ROUTES.GALLERY,
-    component: GalleryComponent
+    component: GalleryComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: ROUTES.ADMIN.DASHBOARD,

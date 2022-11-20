@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { User, USR } from 'src/app/shared/interfaces/user.interface';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
@@ -11,38 +13,59 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class RegisterComponent implements OnInit {
 
   public RegisterForm !: FormGroup;
-  constructor(private authService : AuthService, private fb : FormBuilder) { }
-
-  ngOnInit(): void {
+  constructor(private authService : AuthService, private fb : FormBuilder, private cookieService : CookieService, private router : Router) {
     this.RegisterForm = this.initForm();
+  }
+
+  ngOnInit(): void { }
+
+  static passwordMatch(form: AbstractControl){
+    return form.get('password')?.value === form.get('confirmPassword')?.value ? null : {passwordMatch : true};
   }
 
   public initForm():FormGroup{
     return this.fb.group({
+      firstName : ['',Validators.required],
+      secondName : ['',Validators.required],
+      firstSurname : ['',Validators.required],
+      secondSurname : ['',Validators.required],
       user : ['',[Validators.required]],
       email : ['',[Validators.required]],
       password : ['',[Validators.required]],
-      confirm : ['',[Validators.required]]
-    })
+      confirmPassword : ['',[Validators.required]],
+      acceptLicenseAgreement : [false,Validators.requiredTrue]
+    }, {validators : RegisterComponent.passwordMatch})
   }
 
   public register():void{
     
-    const {user,email,password,confirm} = this.RegisterForm.value;
+    const {firstName, secondName, firstSurname, secondSurname, user, email, password, confirmPassword} = this.RegisterForm.value;
 
+    if (password !== confirmPassword) {
+      alert('Las contraseñas no coinciden');
+      return;
+    }
     let usr : USR = {
-      firstName: " ",
-      secondName: " ",
-      firstSurname: " ",
-      secondSurname: " ",
+      firstName: firstName,
+      secondName: secondName,
+      firstSurname: firstSurname,
+      secondSurname: secondSurname,
       userName : user,
       email : email,
       password : password,
       joinDate : new Date()
     }
-
-    this.authService.register(usr).subscribe(res => {
-      console.log(res);
+    // console.log(usr);
+    this.authService.register(usr).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.cookieService.set('token', res.token);
+        this.router.navigate(['/gallery']);
+      },
+      error: (error) => {
+        console.log(error);
+        alert('Correo ya usado');
+      }
     })
   }
 
