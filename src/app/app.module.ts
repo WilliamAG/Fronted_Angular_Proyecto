@@ -7,13 +7,17 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CookieService } from 'ngx-cookie-service';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ViewImageComponent } from './components/view-image/view-image.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
+import { GraphicComponent } from './components/graphic/graphic.component';
+import { NgChartsModule } from 'ng2-charts';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TokenInterceptor } from './token.interceptor';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,8 @@ import { TokenInterceptor } from './token.interceptor';
     NavbarComponent,
     FooterComponent,
     GalleryComponent,
+    GraphicComponent,
+    DashboardComponent,
   ],
 
   imports: [
@@ -32,7 +38,9 @@ import { TokenInterceptor } from './token.interceptor';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgChartsModule,
+    FormsModule
   ],
   
   providers: [

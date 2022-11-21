@@ -96,7 +96,7 @@ export class GalleryComponent implements OnInit {
     if (image.imageId == undefined) {
       return;
     }
-    this.galleryService.removeImage(image.imageId).subscribe((image: any) => {
+    this.galleryService.deleteImage(image.imageId).subscribe((image: any) => {
       console.log(image);
     });
     this.images = this.images.filter((img) => img.imageId != image.imageId);    
