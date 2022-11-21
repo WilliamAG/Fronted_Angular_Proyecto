@@ -9,8 +9,11 @@ header {
 
 #galleryImage {
     width: 300px;
-    height: auto;
+    height: 250px;
     padding: 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 #downloadIcon, #deleteIcon {
@@ -40,7 +43,61 @@ header {
     padding: 10px;
 }
 
+#album img{
+    transition: all .2s;
+    border: 0px solid #fff;
+}
+
 #album img:hover {
     opacity: 0.8;
     border: 5px solid #fff;
+}
+
+#new-album{
+    display: flex;
+    align-items: center;
+    color: rgb(33,37,41);
+}
+
+#new-album span{
+    cursor: pointer;
+}
+
+#icon-delete{
+    background-color: rgb(33,37,41);
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    padding: 4px;
+    margin-left: 5px;
+}
+
+#icon-delete:hover{
+    background-color: rgb(59, 6, 6);
+    padding: 5px;
+}
+
+.name-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name-icon input{
+    border-color: rgb(33,37,41);
+    border-radius: 2px;
+    outline: none;
+    width: 180px;
+}
+
+.category{
+    display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+
+.cards{
+    width: 298px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
