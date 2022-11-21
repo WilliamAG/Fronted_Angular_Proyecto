@@ -4,6 +4,7 @@
     width: 100%;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    padding-left: 280px;
     div{
         display: flex;
         flex-direction: column;
@@ -31,6 +32,7 @@
 
 .content-charts{
     margin-top: 40px;
+    padding-left: 280px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;

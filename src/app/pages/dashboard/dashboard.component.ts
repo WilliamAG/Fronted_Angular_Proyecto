@@ -21,6 +21,9 @@ export class DashboardComponent {
   selectedTypeChartImage: Tchart = 'line';
   topImage = { label: '', value: 0 };
   downImage = { label: '', value: 0 };
+  selectedTypeChartPlan: Tchart = 'bar';
+  topPlan = { label: '', value: 0 };
+  downPlan = { label: '', value: 0 };
 
   selectRegister: dataDate = {
     firstDate: this.sumarDias(new Date(Date.now()), -5000)
@@ -42,6 +45,7 @@ export class DashboardComponent {
     this.totalStorage();
     this.changeDateRegister();
     this.changeDateImage();
+    this.changeUsePlan();
   }
 
   changeDateRegister() {
@@ -56,6 +60,27 @@ export class DashboardComponent {
             id: '1',
             y: this.selectedTypeChartUser == 'bar' ||
               this.selectedTypeChartUser == 'line'
+              ? true
+              : false,
+          }
+        );
+      },
+      error: (error) => console.log(error)
+    })
+  }
+  
+  changeUsePlan() {
+    this.DashboardService.getUsePlan().subscribe({
+      next: (res: getDataChart) => {
+        this.topPlan = res.up;
+        this.downPlan = res.down;
+        this.ChartsService.setData(
+          {
+            data: res.data,
+            labels: res.labels,
+            id: '3',
+            y: this.selectedTypeChartPlan == 'bar' ||
+              this.selectedTypeChartPlan == 'line'
               ? true
               : false,
           }
@@ -130,10 +155,13 @@ export class DashboardComponent {
   changeChart(id: string, typeC: Tchart) {
     if (id == "1") {
       this.selectedTypeChartUser = typeC;
-      this.changeDateRegister()
+      this.changeDateRegister();
     } else if (id == "2") {
       this.selectedTypeChartImage = typeC;
-      this.changeDateImage()
+      this.changeDateImage();
+    } else if ( id == "3" ) {
+      this.selectedTypeChartPlan = typeC;
+      this.changeUsePlan();
     }
   }
 

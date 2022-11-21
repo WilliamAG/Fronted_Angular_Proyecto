@@ -1,5 +1,7 @@
 <app-navbar type="home"></app-navbar>
 
+<app-sidebar></app-sidebar>
+
 <div class="static-data">
     <div>
         <span class="material-icons">people</span>
@@ -23,34 +25,36 @@
         <div class="content-charts-1">
             <h5 class="content-charts-1-title">Usuarios registrados</h5>
             <div class="content-charts-1-selects">
-                <i [ngClass]="showClassCharts('bar',selectedTypeChartUser)"
-                    class="material-icons" (click)="changeChart('1','bar')">bar_chart</i>
-                <i [ngClass]="showClassCharts('line',selectedTypeChartUser)"
-                    class="material-icons" (click)="changeChart('1','line')">show_chart</i>
-                <i [ngClass]="showClassCharts('pie',selectedTypeChartUser)"
-                    class="material-icons" (click)="changeChart('1','pie')">pie_chart</i>
-                <i [ngClass]="showClassCharts('doughnut',selectedTypeChartUser)"
-                    class="material-icons" (click)="changeChart('1','doughnut')">donut_small</i>
+                <i [ngClass]="showClassCharts('bar',selectedTypeChartUser)" class="material-icons"
+                    (click)="changeChart('1','bar')">bar_chart</i>
+                <i [ngClass]="showClassCharts('line',selectedTypeChartUser)" class="material-icons"
+                    (click)="changeChart('1','line')">show_chart</i>
+                <i [ngClass]="showClassCharts('pie',selectedTypeChartUser)" class="material-icons"
+                    (click)="changeChart('1','pie')">pie_chart</i>
+                <i [ngClass]="showClassCharts('doughnut',selectedTypeChartUser)" class="material-icons"
+                    (click)="changeChart('1','doughnut')">donut_small</i>
             </div>
 
             <app-graphic [type]="selectedTypeChartUser" [idCanva]="'1'"></app-graphic>
 
             <div class="content-charts-1-inputs">
                 <label for="inputFirstDate">Entre: </label>
-                <input [(ngModel)]="selectRegister.firstDate" #inputFirstDate type="date" (change)="changeDateRegister()">
+                <input [(ngModel)]="selectRegister.firstDate" #inputFirstDate type="date"
+                    (change)="changeDateRegister()">
                 <label for="inputFirstDate"> a </label>
-                <input [(ngModel)]="selectRegister.lastDate" #inputFirstDate type="date" (change)="changeDateRegister()">
+                <input [(ngModel)]="selectRegister.lastDate" #inputFirstDate type="date"
+                    (change)="changeDateRegister()">
             </div>
 
             <div class="details-final">
                 <h6 [title]="topUser.label">
-                    <i style="color:green" class="material-icons">north</i> 
-                    {{topUser.label.substring(0,25)}}: 
+                    <i style="color:green" class="material-icons">north</i>
+                    {{topUser.label.substring(0,25)}}:
                     <span style="color:green">{{topUser.value}}</span>
                 </h6>
                 <h6 [title]="downUser.label">
-                    <i style="color:red"  class="material-icons">south</i> 
-                    {{downUser.label.substring(0,25)}}: 
+                    <i style="color:red" class="material-icons">south</i>
+                    {{downUser.label.substring(0,25)}}:
                     <span style="color:red">{{downUser.value}}</span>
                 </h6>
             </div>
@@ -61,14 +65,14 @@
         <div class="content-charts-1">
             <h5 class="content-charts-1-title">Imágenes subidas</h5>
             <div class="content-charts-1-selects">
-                <i [ngClass]="showClassCharts('bar',selectedTypeChartImage)"
-                    class="material-icons" (click)="changeChart('2','bar')">bar_chart</i>
-                <i [ngClass]="showClassCharts('line',selectedTypeChartImage)"
-                    class="material-icons" (click)="changeChart('2','line')">show_chart</i>
-                <i [ngClass]="showClassCharts('pie',selectedTypeChartImage)"
-                    class="material-icons" (click)="changeChart('2','pie')">pie_chart</i>
-                <i [ngClass]="showClassCharts('doughnut',selectedTypeChartImage)"
-                    class="material-icons" (click)="changeChart('2','doughnut')">donut_small</i>
+                <i [ngClass]="showClassCharts('bar',selectedTypeChartImage)" class="material-icons"
+                    (click)="changeChart('2','bar')">bar_chart</i>
+                <i [ngClass]="showClassCharts('line',selectedTypeChartImage)" class="material-icons"
+                    (click)="changeChart('2','line')">show_chart</i>
+                <i [ngClass]="showClassCharts('pie',selectedTypeChartImage)" class="material-icons"
+                    (click)="changeChart('2','pie')">pie_chart</i>
+                <i [ngClass]="showClassCharts('doughnut',selectedTypeChartImage)" class="material-icons"
+                    (click)="changeChart('2','doughnut')">donut_small</i>
             </div>
 
             <app-graphic [type]="selectedTypeChartImage" [idCanva]="'2'"></app-graphic>
@@ -82,14 +86,43 @@
 
             <div class="details-final">
                 <h6 [title]="topImage.label">
-                    <i style="color:green" class="material-icons">north</i> 
-                    {{topImage.label.substring(0,25)}}: 
+                    <i style="color:green" class="material-icons">north</i>
+                    {{topImage.label.substring(0,25)}}:
                     <span style="color:green">{{topImage.value}}</span>
                 </h6>
                 <h6 [title]="downImage.label">
-                    <i style="color:red"  class="material-icons">south</i> 
-                    {{downImage.label.substring(0,25)}}: 
+                    <i style="color:red" class="material-icons">south</i>
+                    {{downImage.label.substring(0,25)}}:
                     <span style="color:red">{{downImage.value}}</span>
+                </h6>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="content-charts-1">
+            <h5 class="content-charts-1-title">Suscripciones planes</h5>
+            <div class="content-charts-1-selects">
+                <i [ngClass]="showClassCharts('bar',selectedTypeChartPlan)" class="material-icons"
+                    (click)="changeChart('3','bar')">bar_chart</i>
+                <i [ngClass]="showClassCharts('pie',selectedTypeChartPlan)" class="material-icons"
+                    (click)="changeChart('3','pie')">pie_chart</i>
+                <i [ngClass]="showClassCharts('doughnut',selectedTypeChartPlan)" class="material-icons"
+                    (click)="changeChart('3','doughnut')">donut_small</i>
+            </div>
+
+            <app-graphic [type]="selectedTypeChartPlan" [idCanva]="'3'"></app-graphic>
+
+            <div class="details-final">
+                <h6 [title]="topPlan.label">
+                    <i style="color:green" class="material-icons">north</i>
+                    {{topPlan.label}}:
+                    <span style="color:green">{{topPlan.value}}</span>
+                </h6>
+                <h6 [title]="downPlan.label">
+                    <i style="color:red" class="material-icons">south</i>
+                    {{downPlan.label}}:
+                    <span style="color:red">{{downPlan.value}}</span>
                 </h6>
             </div>
         </div>

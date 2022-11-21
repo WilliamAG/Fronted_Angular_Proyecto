@@ -18,5 +18,6 @@ export const ENDPOINTS = {
         IMAGES: `${environment.server}/dashboard/TImage`,
         DATE_REGISTER: `${environment.server}/dashboard/DRegister`,
         DATE_IMAGE: `${environment.server}/dashboard/DImage`,
+        PLANS: `${environment.server}/dashboard/UPlan`,
     }
 }

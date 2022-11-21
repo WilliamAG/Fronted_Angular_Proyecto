@@ -33,7 +33,7 @@ export class GraphicComponent {
 
   @Input() type: Tchart = 'line';
   @Input() label: string = '';
-  @Input() width: string = '349px';
+  @Input() width: string = '350px';
   @Input() showLabelsX: boolean = false;
   @Input() idCanva: string = '0';
 
