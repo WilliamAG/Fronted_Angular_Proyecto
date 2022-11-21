@@ -66,4 +66,8 @@ export class GalleryService {
       console.log(userId)
       return this.http.post<dataAlbum>(`${ENDPOINTS.ALBUMS}/${userId}`, name);
   }
+
+  deleteAlbum(id:number|undefined):Observable<dataAlbum>{
+    return this.http.delete<dataAlbum>(`${ENDPOINTS.ALBUMS}/${id}`);
+}
 }

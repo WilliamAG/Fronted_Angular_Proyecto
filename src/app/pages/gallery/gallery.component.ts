@@ -27,6 +27,7 @@ export class GalleryComponent implements OnInit {
   }
 
   getAlbumsUser(){
+    this.albums.length = 0
     this.galleryService.getAlbums().subscribe({
       next: (albums: any) => {
         for (let i = 0; i < albums.length; i++) {
@@ -42,6 +43,7 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void { }
   
   goGallery(album: Album) {
+    this.selectNewAlbum();
     if (album.albumId == undefined) {
       return;
     }
@@ -57,7 +59,6 @@ export class GalleryComponent implements OnInit {
         this.modeGallery = true;
         this.modeAlbum = false;
         this.currentAlbum = album;
-        console.log(this.currentAlbum)
     },
       error: (error: any) => {
         console.log(error);
@@ -159,5 +160,16 @@ export class GalleryComponent implements OnInit {
     )
   }
 
+  deleteAlbum(id:number|undefined){
+    this.galleryService.deleteAlbum(id).subscribe(
+      {
+        next: (res:dataAlbum) =>{
+          this.getAlbumsUser()
+          console.log(res.msg)
+        },
+        error: (error) => alert(error.msg)
+      }
+    )
+  }
 
 }
