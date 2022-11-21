@@ -14,7 +14,9 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { TokenInterceptor } from './token.interceptor';
-
+import { LogComponent } from './pages/log/log.component';
+import {MatPaginatorModule } from '@angular/material/paginator';
+import { SidebarComponent } from './components/sidebar/sidebar.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +27,8 @@ import { TokenInterceptor } from './token.interceptor';
     NavbarComponent,
     FooterComponent,
     GalleryComponent,
+    LogComponent,
+    SidebarComponent,
   ],
 
   imports: [
@@ -32,7 +36,8 @@ import { TokenInterceptor } from './token.interceptor';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatPaginatorModule
   ],
   
   providers: [
