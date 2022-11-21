@@ -13,9 +13,11 @@
 </header>
 
 <section *ngIf="modeGallery" id="gallery">
+    <button class="btn btn-primary" (click)="goAlbums()">Atras</button>
     <div class="row text-center">
         <div *ngFor="let image of images; let ident = index" class="col-lg-2 col-md-4 col-sm-6">
-            <img id="galleryImage" [src]="image.url" alt="Galeria" (click)="openImage(ident)">
+            <div [style]="'background-image:url('+image.url+')'" id="galleryImage" (click)="openImage(ident)"></div>
+            <!-- <img id="galleryImage" [src]="image.url" alt="Galeria" (click)="openImage(ident)"> -->
             <a [href]="image.url" [download]="image.fileName" target="_blank">
                 <img id="downloadIcon" src="../../../assets/download-icon.png" alt="Descargar">
             </a>
@@ -23,7 +25,6 @@
             <p>{{image.fileName}}</p>
         </div>
     </div>
-    <button class="btn btn-primary" (click)="goAlbums()">Atras</button>
 </section>
 
 <section *ngIf="modeAlbum" id="album">
@@ -31,6 +32,13 @@
         <div *ngFor="let album of albums" class="col-lg-2 col-md-4 col-sm-6">
             <img id="albumImage" (click)="goGallery(album)" src="../../../assets/album.png" alt="Albumes">
             <p>{{album.name}}</p>
+        </div>
+        <div class="col-lg-2 col-md-4 col-sm-6">
+            <img id="albumImage" src="../../../assets/new_album.jpg" alt="Nuevo album" (click)="selectNewAlbum()">
+            <p id="new-album" *ngIf="okNewAlbum">
+                <input type="text" [(ngModel)]="nameAlbum.name">
+                <span class="material-icons" (click)="addAlbum()">add_circle_outline</span>
+            </p>
         </div>
     </div>
 </section>
