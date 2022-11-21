@@ -17,6 +17,9 @@ import { GraphicComponent } from './components/graphic/graphic.component';
 import { NgChartsModule } from 'ng2-charts';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TokenInterceptor } from './token.interceptor';
+import { LogComponent } from './pages/log/log.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { SidebarComponent } from './components/sidebar/sidebar.component'
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -29,6 +32,8 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     FooterComponent,
     GalleryComponent,
+    LogComponent,
+    SidebarComponent,
     GraphicComponent,
     DashboardComponent,
   ],
@@ -39,6 +44,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    MatPaginatorModule,
     NgChartsModule,
     FormsModule
   ],
