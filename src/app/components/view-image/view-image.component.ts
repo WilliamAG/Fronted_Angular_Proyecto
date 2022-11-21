@@ -90,13 +90,20 @@ export class ViewImageComponent {
   }
 
   deleteImage() {
-    const imageId = this.images[this.selected].imageId || -1
-    this.galleryService.removeImage(imageId).subscribe((d: any) => {
-      console.log(d)
-    })
-    this.images.splice(this.selected, 1)
-    
-
-    this.hideModal()
+    let imageId = this.images[this.selected].imageId
+    if (imageId === undefined) {
+      return
+    }
+    this.galleryService.deleteImage(imageId).subscribe({
+      next: (data: any) => {
+        this.images.splice(this.selected, 1)
+        this.ImagesService.setImages(this.images)
+        this.hideModal()
+      }, error: (error: any) => {
+        console.log(error)
+      }
+  })
   }
+
 }
+

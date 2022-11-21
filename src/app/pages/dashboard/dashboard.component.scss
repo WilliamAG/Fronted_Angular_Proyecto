@@ -1,0 +1,170 @@
+.static-data{
+    display: flex;
+    margin-top: 100px;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100px;
+        margin: 0px 10px;
+        span{
+           background-color: rgb(33,37,41);
+           padding: 10px;
+           font-size: 60px;
+           color: white;
+           border-radius: 0px 0px 7px 7px;
+           width: 80px;
+        }
+        h2,h6{
+            margin: 0px;
+            text-align: center;
+            
+        }
+        h2{
+            color: green;
+        }
+    }
+}
+
+.content-charts{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    .content{
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 20px;
+    }
+    &-1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 5px;
+        &-title{
+            width: 100%;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            text-align: center;
+            font-weight: bold;
+            margin: 0px;
+            background-color: white;
+            border-radius: 5px 5px 0px 0px;
+            border-color: rgb(183,184,230);
+            color:rgb(37,47,55);
+            border-style: solid;
+            border-width: 2px;
+            border-bottom: none;
+        }
+        &-inputs{
+            width: 100%;
+            padding-bottom: 7px;
+            padding-top: 7px;
+            background-color: white;
+            border-color: rgb(183,184,230);
+            color:rgb(37,47,55);
+            border-style: solid;
+            border-width: 2px;
+            border-bottom: none;
+            border-top: none;
+            display: flex;
+            justify-content: center;
+            label{
+                padding: 0px 5px;
+                color:rgb(37,47,55);
+            }
+            input{
+                border-top: none;
+                border-left: none;
+                border-right: none;
+                text-align: center;
+                color:rgb(37,47,55);
+                outline: none;
+            }
+        }
+        &-selects{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: white;
+            padding: 5px 0px;
+            border-color: rgb(183,184,230);
+            border-style: solid;
+            border-width: 2px;
+            border-bottom: none;
+            border-top: none;
+            &-select{
+                padding: 3px;
+                border-radius: 3px;
+                margin: 0px 2px;
+                color:white;
+                background-color: rgb(37,47,55);
+            }
+            &-item{
+                padding: 3px;
+                border-radius: 3px;
+                color:rgb(37,47,55);
+                margin: 0px 2px;
+                transition: all .3s;
+                cursor: pointer;
+                &:hover{
+                    color:white;
+                    background-color: rgb(37,47,55);
+                }
+            }
+        }
+    }
+}
+
+.select-category{
+    width: 100%;
+    color:rgb(37,47,55);
+    border-color: rgb(183,184,230);
+    border-width: 2px;
+    border-top: none;
+    border-radius: 0px 0px 5px 5px;
+    outline: none;
+    text-align: center;
+    font-weight: bold;
+    height: 50px;
+    cursor: pointer;
+}
+
+.details{
+    background-color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(183,184,230);
+    width: 100%;
+    border-top: none;
+    border-bottom: none;
+    i{
+        font-size: 10px;
+    };
+    h6{
+        font-size: 10px;
+        margin-bottom: 0px;
+        text-align: center;
+    }
+}
+
+.details-final{
+    background-color: white;
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgb(183,184,230);
+    width: 100%;
+    border-radius: 0px 0px 5px 5px;
+    border-top: none;
+    i{
+        font-size: 10px;
+    };
+    h6{
+        font-size: 10px;
+        margin-bottom: 0px;
+        text-align: center;
+    }
+}

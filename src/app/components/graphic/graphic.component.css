@@ -1,0 +1,10 @@
+.contend-chart{
+    background-color: white;
+    border-style: solid;
+    border-left-color: rgb(183,184,230);
+    border-right-color: rgb(183,184,230);
+    border-top: none;
+    border-bottom: none;
+    border-width: 2px;
+    padding: 5px;
+}

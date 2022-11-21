@@ -7,16 +7,21 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CookieService } from 'ngx-cookie-service';
-import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ViewImageComponent } from './components/view-image/view-image.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
+import { GraphicComponent } from './components/graphic/graphic.component';
+import { NgChartsModule } from 'ng2-charts';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TokenInterceptor } from './token.interceptor';
 import { LogComponent } from './pages/log/log.component';
-import {MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { SidebarComponent } from './components/sidebar/sidebar.component'
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +34,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component'
     GalleryComponent,
     LogComponent,
     SidebarComponent,
+    GraphicComponent,
+    DashboardComponent,
   ],
 
   imports: [
@@ -37,7 +44,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component'
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgChartsModule,
+    FormsModule
   ],
   
   providers: [

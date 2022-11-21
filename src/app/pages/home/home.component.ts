@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChartsService } from "../../shared/services/charts.service"
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ChartsService:ChartsService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {  }
 
 }
