@@ -12,4 +12,5 @@ export class PagoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Comentario
 }
