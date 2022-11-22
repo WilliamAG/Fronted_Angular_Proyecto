@@ -21,6 +21,8 @@ import { LogComponent } from './pages/log/log.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { SidebarComponent } from './components/sidebar/sidebar.component'
 import { FormsModule } from '@angular/forms';
+import { InterfazPlanComponent } from './pages/interfaz-plan/interfaz-plan.component';
+import { PagoComponent } from './pages/pago/pago.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { FormsModule } from '@angular/forms';
     SidebarComponent,
     GraphicComponent,
     DashboardComponent,
+    InterfazPlanComponent,
+    PagoComponent,
   ],
 
   imports: [
@@ -46,7 +50,7 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     MatPaginatorModule,
     NgChartsModule,
-    FormsModule
+    FormsModule,
   ],
   
   providers: [
