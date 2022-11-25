@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TokenInterceptor } from './token.interceptor';
 import { FormsModule } from '@angular/forms';
+import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { FormsModule } from '@angular/forms';
     GalleryComponent,
     GraphicComponent,
     DashboardComponent,
+    TableComponent,
+    MaintenanceComponent,
   ],
 
   imports: [
@@ -47,6 +51,6 @@ import { FormsModule } from '@angular/forms';
     CookieService,
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
