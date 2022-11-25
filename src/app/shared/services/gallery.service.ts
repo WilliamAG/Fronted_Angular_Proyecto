@@ -3,12 +3,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ENDPOINTS } from 'src/app/config/endpoints';
 import { Image } from '../interfaces/image.interface';
-import { Album } from '../interfaces/album.interface';
+import { Album, dataAlbum } from '../interfaces/album.interface';
 import jwt_decode from "jwt-decode";
 import { CookieService } from 'ngx-cookie-service';
 import { UserToken } from '../interfaces/user.interface';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -61,4 +60,14 @@ export class GalleryService {
   deleteImage(imageId: number): Observable<any> {
     return this.http.delete(`${ENDPOINTS.GALLERY}/${imageId}`);
   }
+
+  newAlbum(name:any):Observable<dataAlbum>{
+      const userId = this.getUserId();
+      console.log(userId)
+      return this.http.post<dataAlbum>(`${ENDPOINTS.ALBUMS}/${userId}`, name);
+  }
+
+  deleteAlbum(id:number|undefined):Observable<dataAlbum>{
+    return this.http.delete<dataAlbum>(`${ENDPOINTS.ALBUMS}/${id}`);
+}
 }

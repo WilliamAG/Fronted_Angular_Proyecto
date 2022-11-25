@@ -32,4 +32,7 @@ export class DashboardService {
     return this.http.post<getDataChart>(`${ENDPOINTS.DASHBOARD.DATE_IMAGE}`,data);
   }
 
+  public getUsePlan():Observable<getDataChart>{
+    return this.http.get<getDataChart>(`${ENDPOINTS.DASHBOARD.PLANS}`);
+  }
 }

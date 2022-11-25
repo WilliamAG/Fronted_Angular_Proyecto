@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ENDPOINTS } from 'src/app/config/endpoints';
+import { ENDPOINTS } from 'src/app/config/endpoints'; 
 import { User, USR } from '../interfaces/user.interface';
 
 @Injectable({

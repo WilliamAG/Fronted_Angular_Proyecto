@@ -7,7 +7,7 @@ const ROUTES = {
       ROOT: 'admin',
       BINNACLE: 'admin/binnacle',
       MAINTENANCE: 'admin/maintenance',
-      DASHBOARD: 'dashboard'
+      DASHBOARD: 'admin/dashboard'
     },
     CUSTOMER: {
       ROOT: 'customer'

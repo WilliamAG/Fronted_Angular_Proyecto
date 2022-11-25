@@ -4,3 +4,8 @@ export interface Album {
     createDate: Date;
     ownerUserId?: number;
 }
+
+export interface dataAlbum {
+    ok: boolean;
+    msg: string;
+}

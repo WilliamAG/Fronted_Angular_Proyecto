@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
-import { Album } from 'src/app/shared/interfaces/album.interface';
+import { Album, dataAlbum} from 'src/app/shared/interfaces/album.interface';
 import { Image } from 'src/app/shared/interfaces/image.interface';
 import { GalleryService } from 'src/app/shared/services/gallery.service';
 import { ImagesService } from 'src/app/shared/services/images.service';
@@ -15,6 +14,7 @@ export class GalleryComponent implements OnInit {
   images: Image[];
   albums: Album[];
   currentAlbum: Album;
+  okNewAlbum: boolean = false;
 
   modeGallery = false;
   modeAlbum = true
@@ -23,8 +23,12 @@ export class GalleryComponent implements OnInit {
     this.images = [];
     this.albums = [];
     this.currentAlbum = { albumId: undefined, name: undefined , createDate: new Date};
+    this.getAlbumsUser();    
+  }
 
-    galleryService.getAlbums().subscribe({
+  getAlbumsUser(){
+    this.albums.length = 0
+    this.galleryService.getAlbums().subscribe({
       next: (albums: any) => {
         for (let i = 0; i < albums.length; i++) {
           this.albums.push(albums[i]);
@@ -39,6 +43,7 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void { }
   
   goGallery(album: Album) {
+    this.selectNewAlbum();
     if (album.albumId == undefined) {
       return;
     }
@@ -57,6 +62,7 @@ export class GalleryComponent implements OnInit {
     },
       error: (error: any) => {
         console.log(error);
+        this.currentAlbum = album;
         this.modeGallery = true;
         this.modeAlbum = false;
       }
@@ -70,6 +76,7 @@ export class GalleryComponent implements OnInit {
 
   fileUpload(e: any) {
     if (this.currentAlbum.albumId == undefined) {
+      console.log("esta undefined")
       return;
     };
     e.preventDefault();
@@ -122,4 +129,47 @@ export class GalleryComponent implements OnInit {
       }
     });
   }
+
+  selectNewAlbum(){
+    if (this.okNewAlbum){
+      this.okNewAlbum = false
+    }else{
+      this.okNewAlbum = true
+    }
+  }
+
+  nameAlbum = {
+    name:""
+  }
+
+  addAlbum(){
+    if (this.nameAlbum.name.trim() == "") {
+      alert("No coloco el nombre del álbum")
+      return;
+    }
+
+    this.galleryService.newAlbum(this.nameAlbum).subscribe(
+      {
+        next: (res:dataAlbum) =>{
+          this.selectNewAlbum()
+          this.getAlbumsUser()
+          console.log(res.msg)
+        },
+        error: (error) => alert(error.msg)
+      }
+    )
+  }
+
+  deleteAlbum(id:number|undefined){
+    this.galleryService.deleteAlbum(id).subscribe(
+      {
+        next: (res:dataAlbum) =>{
+          this.getAlbumsUser()
+          console.log(res.msg)
+        },
+        error: (error) => alert(error.msg)
+      }
+    )
+  }
+
 }

@@ -13,9 +13,11 @@
 </header>
 
 <section *ngIf="modeGallery" id="gallery">
-    <div class="row text-center">
-        <div *ngFor="let image of images; let ident = index" class="col-lg-2 col-md-4 col-sm-6">
-            <img id="galleryImage" [src]="image.url" alt="Galeria" (click)="openImage(ident)">
+    <button class="btn btn-primary" (click)="goAlbums()">Atras</button>
+    <div class="category text-center">
+        <div *ngFor="let image of images; let ident = index" class="cards">
+            <div [style]="'background-image:url('+image.url+')'" id="galleryImage" (click)="openImage(ident)"></div>
+            <!-- <img id="galleryImage" [src]="image.url" alt="Galeria" (click)="openImage(ident)"> -->
             <a [href]="image.url" [download]="image.fileName" target="_blank">
                 <img id="downloadIcon" src="../../../assets/download-icon.png" alt="Descargar">
             </a>
@@ -23,14 +25,20 @@
             <p>{{image.fileName}}</p>
         </div>
     </div>
-    <button class="btn btn-primary" (click)="goAlbums()">Atras</button>
 </section>
 
 <section *ngIf="modeAlbum" id="album">
-    <div class="row text-center">
-        <div *ngFor="let album of albums" class="col-lg-2 col-md-4 col-sm-6">
+    <div class="category text-center">
+        <div *ngFor="let album of albums" class="cards">
             <img id="albumImage" (click)="goGallery(album)" src="../../../assets/album.png" alt="Albumes">
-            <p>{{album.name}}</p>
+            <p class="name-icon">{{album.name}}<span id="icon-delete" (click)="deleteAlbum(album.albumId)" class="material-icons">delete</span></p>
+        </div>
+        <div class="cards">
+            <img id="albumImage" src="../../../assets/new_album.jpg" alt="Nuevo album" (click)="selectNewAlbum()">
+            <p id="new-album" *ngIf="okNewAlbum">
+                <input type="text" [(ngModel)]="nameAlbum.name" (keyup.enter)="addAlbum()">
+                <span class="material-icons" (click)="addAlbum()">add_circle_outline</span>
+            </p>
         </div>
     </div>
 </section>
