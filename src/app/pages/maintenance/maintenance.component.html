@@ -12,6 +12,7 @@
       <button (click)="goLogTable()" type="button" class="btn btn-dark text-white-50">Log</button>
     </ul>
   </div>
+  <button (click)="back();" type="button" class="btn btn-primary">Regresar</button>
 </nav>
 
 <app-table *ngIf="albumTable" [dataSource]="albums" (newRowEvent)="addAlbum($event)" (updateEvent)="updateAlbum($event)" (deleteEvent)="deleteAlbum($event)" ></app-table>

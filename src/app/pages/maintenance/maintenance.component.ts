@@ -7,6 +7,7 @@ import { EventType } from 'src/app/shared/interfaces/event-type.interface';
 import { StoragePlan } from 'src/app/shared/interfaces/storage-plan.interface';
 import { TableData } from 'src/app/shared/interfaces/table-data.interface';
 import { Log } from 'src/app/shared/interfaces/log.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-maintenance',
@@ -34,7 +35,7 @@ export class MaintenanceComponent implements OnInit {
   tableData: TableData[] = [];
   logs: Log[] = [];
   
-  constructor(private maintenanceService: MaintenanceService) { }
+  constructor(private maintenanceService: MaintenanceService, private router: Router) { }
 
   ngOnInit(): void {
     this.maintenanceService.getTable('user').subscribe({
@@ -46,6 +47,10 @@ export class MaintenanceComponent implements OnInit {
         alert('Datos no validos');
       }
     });
+  }
+
+  back() {
+    this.router.navigate(['/admin/dashboard']);
   }
 
   goUserTable() {
