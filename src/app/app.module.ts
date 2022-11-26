@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +23,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component'
 import { FormsModule } from '@angular/forms';
 import { InterfazPlanComponent } from './pages/interfaz-plan/interfaz-plan.component';
 import { PagoComponent } from './pages/pago/pago.component';
+import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { PagoComponent } from './pages/pago/pago.component';
     DashboardComponent,
     InterfazPlanComponent,
     PagoComponent,
+    TableComponent,
+    MaintenanceComponent,
   ],
 
   imports: [
@@ -57,6 +61,6 @@ import { PagoComponent } from './pages/pago/pago.component';
     CookieService,
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

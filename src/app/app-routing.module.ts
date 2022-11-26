@@ -10,6 +10,8 @@ import { LogComponent } from './pages/log/log.component';
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { InterfazPlanComponent } from './pages/interfaz-plan/interfaz-plan.component';
 import { PagoComponent } from './pages/pago/pago.component';
+import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
+import { RoleGuard } from './role.guard';
 
 const routes: Routes = [
   {
@@ -35,15 +37,27 @@ const routes: Routes = [
   },
   {
     path: ROUTES.ADMIN.BINNACLE,
-    component: LogComponent
+    component: LogComponent,
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: ROUTES.ADMIN.DASHBOARD,
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [AuthGuard, RoleGuard],
   },
-  { path: 'plan', component: InterfazPlanComponent},
-  { path: 'hacer-pago', component:PagoComponent }
-
+  { 
+    path: 'plan', 
+    component: InterfazPlanComponent
+  },
+  { 
+    path: 'hacer-pago', 
+    component:PagoComponent 
+  },
+  {
+    path: ROUTES.ADMIN.MAINTENANCE,
+    component: MaintenanceComponent,
+    canActivate: [AuthGuard, RoleGuard],
+  }
 ];
 
 @NgModule({

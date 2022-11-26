@@ -6,6 +6,7 @@ import {Router} from '@angular/router'
 import { HttpErrorResponse } from '@angular/common/http';
 import { ThisReceiver } from '@angular/compiler';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,7 +15,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class LoginComponent implements OnInit {
 
   //dependency injection: to consume the service
-  constructor(private authService: UsersService, private router: Router, private cookieService: CookieService) { }
+  constructor(private authService: UsersService, private router: Router, private cookieService: CookieService, private auth: AuthService ) { }
 
   ngOnInit(): void {
   }
@@ -49,7 +50,12 @@ export class LoginComponent implements OnInit {
       next: (res) => {
         this.cookieService.delete('token');
         this.cookieService.set('token', res.token);
-        this.router.navigate(['/gallery']);
+        localStorage.setItem('user', JSON.stringify(res.usr));
+        if (this.auth.isAdmin()) {
+          this.router.navigate(['/admin/dashboard']);
+        } else {
+          this.router.navigate(['/gallery']);
+        }
       },
       error: (error: HttpErrorResponse) => {
         console.log(error);

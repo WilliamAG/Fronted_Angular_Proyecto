@@ -1,0 +1,25 @@
+<table class="table text-center table-striped table-responsive" >
+    <thead>
+        <tr>
+            <th *ngFor="let key of getKeys()">{{key}}</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of dataSource">
+            <td *ngFor="let key of getKeys()">
+                <input id="inputDataSource" type="text" [(ngModel)]="row[key]" [value]="row[key]">
+            </td>
+            <div>
+                <button (click)="update(row)" type="button" class="btn btn-warning m-1">Actualizar</button>
+                <button (click)="remove(row)" type="button" class="btn btn-danger m-1">Eliminar</button>
+            </div>
+        </tr>
+        <tr>
+            <td *ngFor="let key of getKeys()">
+                <input id="inputAddRow" [(ngModel)]="newRow[key]" type="text">
+            </td>
+            <div>
+                <button (click)="add()" type="button" class="btn btn-success mx-1">Agregar</button>
+            </div>
+        </tr>
+</table>

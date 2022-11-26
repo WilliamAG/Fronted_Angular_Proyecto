@@ -19,5 +19,13 @@ export class AuthService {
   public register(usuario : USR):Observable<User>{
     return this.http.post<User>(ENDPOINTS.REGISTER,usuario);
   }
+
+  public isAdmin(): boolean {
+    const user:USR = JSON.parse(localStorage.getItem('user') || '{}');
+    if (user) {
+      return user.userTypeId === 1;
+    }
+    return false;
+  }
 }
 
