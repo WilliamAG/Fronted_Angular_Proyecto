@@ -1,0 +1,10 @@
+input {
+    border: 0;
+    text-align: center;
+    width: 100%;
+    background-color: transparent;
+}
+
+#inputAddRow {
+    border: 1px solid black;
+}

@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+  <a class="navbar-brand mx-3">Mantenimiento de tablas</a>
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav mr-auto">
+      <button (click)="goUserTable()" type="button" class="btn btn-dark text-white-50">Usuarios</button>
+      <button (click)="goAlbumTable()" type="button" class="btn btn-dark text-white-50">Albumes</button>
+      <button (click)="goImageTable()" type="button" class="btn btn-dark text-white-50">Imagenes</button>
+      <button (click)="goUserTypeTable()" type="button" class="btn btn-dark text-white-50">Tipos de usuarios</button>
+      <button (click)="goStoragePlanTable()" type="button" class="btn btn-dark text-white-50">Planes de almacenamiento</button>
+      <button (click)="goEventTypeTable()" type="button" class="btn btn-dark text-white-50">Tipos de eventos</button>
+      <button (click)="goTableDataTable()" type="button" class="btn btn-dark text-white-50">Tablas</button>
+      <button (click)="goLogTable()" type="button" class="btn btn-dark text-white-50">Log</button>
+    </ul>
+  </div>
+  <button (click)="back();" type="button" class="btn btn-primary">Regresar</button>
+</nav>
+
+<app-table *ngIf="albumTable" [dataSource]="albums" (newRowEvent)="addAlbum($event)" (updateEvent)="updateAlbum($event)" (deleteEvent)="deleteAlbum($event)" ></app-table>
+<app-table *ngIf="userTable" [dataSource]="users" (newRowEvent)="addUser($event)" (updateEvent)="updateUser($event)" (deleteEvent)="deleteUser($event)" ></app-table>
+<app-table *ngIf="imageTable" [dataSource]="images" (newRowEvent)="addimage($event)" (updateEvent)="updateImage($event)" (deleteEvent)="deleteImage($event)" ></app-table>
+<app-table *ngIf="userTypeTable" [dataSource]="userTypes" (newRowEvent)="addUserType($event)" (updateEvent)="updateUserType($event)" (deleteEvent)="deleteUserType($event)" ></app-table>
+<app-table *ngIf="storagePlanTable" [dataSource]="storagePlans" (newRowEvent)="addStoragePlan($event)" (updateEvent)="updateStoragePlan($event)" (deleteEvent)="deleteStoragePlan($event)" ></app-table>
+<app-table *ngIf="eventTypeTable" [dataSource]="eventTypes" (newRowEvent)="addEventType($event)" (updateEvent)="updateEventType($event)" (deleteEvent)="deleteEventType($event)" ></app-table>
+<app-table *ngIf="tableDataTable" [dataSource]="tableData" (newRowEvent)="addTableData($event)" (updateEvent)="updateTableData($event)" (deleteEvent)="deleteTableData($event)" ></app-table>
+<app-table *ngIf="logTable" [dataSource]="logs" (newRowEvent)="addLog($event)" (updateEvent)="updateLog($event)" (deleteEvent)="deleteLog($event)" ></app-table>
+

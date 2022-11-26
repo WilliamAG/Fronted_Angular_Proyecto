@@ -26,3 +26,8 @@ export interface UserToken {
     iat: number,
     exp: number
 }
+
+export interface UserType {
+    userTypeId: number;
+    name: string;
+}

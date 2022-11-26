@@ -8,6 +8,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LogComponent } from './pages/log/log.component';
 import { DashboardComponent } from "./pages/dashboard/dashboard.component";
+import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
+import { RoleGuard } from './role.guard';
 
 const routes: Routes = [
   {
@@ -33,11 +35,18 @@ const routes: Routes = [
   },
   {
     path: ROUTES.ADMIN.BINNACLE,
-    component: LogComponent
+    component: LogComponent,
+    canActivate: [AuthGuard, RoleGuard],
   },
   {
     path: ROUTES.ADMIN.DASHBOARD,
-    component: DashboardComponent
+    component: DashboardComponent,
+    canActivate: [AuthGuard, RoleGuard],
+  },
+  {
+    path: ROUTES.ADMIN.MAINTENANCE,
+    component: MaintenanceComponent,
+    canActivate: [AuthGuard, RoleGuard],
   }
 
 ];

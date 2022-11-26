@@ -37,6 +37,7 @@ export class GalleryService {
 
   public logout(): void {
     this.cookieService.delete('token');
+    localStorage.removeItem('user');
     this.router.navigate(['/login']);
   }
 
