@@ -30,9 +30,7 @@ export class GalleryComponent implements OnInit {
     this.albums.length = 0
     this.galleryService.getAlbums().subscribe({
       next: (albums: any) => {
-        for (let i = 0; i < albums.length; i++) {
-          this.albums.push(albums[i]);
-        }
+        this.albums = albums;
       },
       error: (error: any) => {
         console.log("No hay albumes");
@@ -164,7 +162,7 @@ export class GalleryComponent implements OnInit {
     this.galleryService.deleteAlbum(id).subscribe(
       {
         next: (res:dataAlbum) =>{
-          this.getAlbumsUser()
+          this.albums = this.albums.filter((album: Album) => album.albumId != id);
           console.log(res.msg)
         },
         error: (error) => alert(error.msg)
