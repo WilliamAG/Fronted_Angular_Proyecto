@@ -46,12 +46,8 @@ const routes: Routes = [
     canActivate: [AuthGuard, RoleGuard],
   },
   { 
-    path: 'interfaz-plan', 
+    path: 'plan', 
     component: InterfazPlanComponent
-  },
-  { 
-    path: 'pago', 
-    component: PagoComponent
   },
   {
     path: ROUTES.ADMIN.MAINTENANCE,
