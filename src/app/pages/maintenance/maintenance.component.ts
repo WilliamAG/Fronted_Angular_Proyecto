@@ -38,7 +38,7 @@ export class MaintenanceComponent implements OnInit {
   constructor(private maintenanceService: MaintenanceService, private router: Router) { }
 
   ngOnInit(): void {
-    this.maintenanceService.getTable('user').subscribe({
+    this.maintenanceService.getTable('User').subscribe({
       next: (data) => {
         this.users = data as any;
       },
@@ -62,7 +62,7 @@ export class MaintenanceComponent implements OnInit {
     this.tableDataTable = false;
     this.eventTypeTable = false;
     this.logTable = false;
-    this.maintenanceService.getTable('user').subscribe({
+    this.maintenanceService.getTable('User').subscribe({
       next: (data) => {
         this.users = data as any;
       },
@@ -75,7 +75,7 @@ export class MaintenanceComponent implements OnInit {
   }
 
   addUser(user: USR) {
-    this.maintenanceService.insertTable('user', user).subscribe({
+    this.maintenanceService.insertTable('User', user).subscribe({
       next: () => {
         console.log("add user");
         console.log(user);
@@ -92,7 +92,7 @@ export class MaintenanceComponent implements OnInit {
     if (user.userId === undefined) {
       return;
     }
-    this.maintenanceService.deleteTable('user', user.userId).subscribe({
+    this.maintenanceService.deleteTable('User', user.userId).subscribe({
       next: () => {
         console.log('remove user');
         console.log(user);
@@ -110,7 +110,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('user id is undefined');
       return;
     }
-    this.maintenanceService.updateTable('user', user.userId, user).subscribe({
+    this.maintenanceService.updateTable('User', user.userId, user).subscribe({
       next: () => {
         console.log('update user');
         console.log(user);
@@ -132,7 +132,7 @@ export class MaintenanceComponent implements OnInit {
     this.tableDataTable = false;
     this.eventTypeTable = false;
     this.logTable = false;
-    this.maintenanceService.getTable('album').subscribe({
+    this.maintenanceService.getTable('Album').subscribe({
       next: (data) => {
         this.albums = data as any;
       },
@@ -144,7 +144,7 @@ export class MaintenanceComponent implements OnInit {
   }
 
   addAlbum(album: Album) {
-    this.maintenanceService.insertTable('album', album).subscribe({
+    this.maintenanceService.insertTable('Album', album).subscribe({
       next: () => {
         console.log("add album");
         console.log(album);
@@ -162,7 +162,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('album id is undefined');
       return;
     }
-    this.maintenanceService.updateTable('album', album.albumId, album).subscribe({
+    this.maintenanceService.updateTable('Album', album.albumId, album).subscribe({
       next: () => {
         console.log('update album');
         console.log(album);
@@ -179,7 +179,7 @@ export class MaintenanceComponent implements OnInit {
     if (album.albumId === undefined) {
       return;
     }
-    this.maintenanceService.deleteTable('album', album.albumId).subscribe({
+    this.maintenanceService.deleteTable('Album', album.albumId).subscribe({
       next: () => {
         console.log('remove album');
         console.log(album);
@@ -201,7 +201,7 @@ export class MaintenanceComponent implements OnInit {
     this.tableDataTable = false;
     this.eventTypeTable = false;
     this.logTable = false;
-    this.maintenanceService.getTable('image').subscribe({
+    this.maintenanceService.getTable('Image').subscribe({
       next: (data) => {
         this.images = data as any;
       },
@@ -214,7 +214,7 @@ export class MaintenanceComponent implements OnInit {
   }
 
   addimage(image: Image) {
-    this.maintenanceService.insertTable('image', image).subscribe({
+    this.maintenanceService.insertTable('Image', image).subscribe({
       next: () => {
         console.log("add image");
         console.log(image);
@@ -232,7 +232,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('image id is undefined');
       return;
     }
-    this.maintenanceService.deleteTable('image', image.imageId).subscribe({
+    this.maintenanceService.deleteTable('Image', image.imageId).subscribe({
       next: () => {
         console.log('remove image');
         console.log(image);
@@ -250,7 +250,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('image id is undefined ' + image.imageId);
       return;
     }
-    this.maintenanceService.updateTable('image', image.imageId, image).subscribe({
+    this.maintenanceService.updateTable('Image', image.imageId, image).subscribe({
       next: () => {
         console.log('update image');
         console.log(image);
@@ -272,7 +272,7 @@ export class MaintenanceComponent implements OnInit {
     this.tableDataTable = false;
     this.eventTypeTable = false;
     this.logTable = false;
-    this.maintenanceService.getTable('usertype').subscribe({
+    this.maintenanceService.getTable('UserType').subscribe({
       next: (data) => {
         this.userTypes = data as any;
       },
@@ -285,7 +285,7 @@ export class MaintenanceComponent implements OnInit {
   }
 
   addUserType(userType: UserType) {
-    this.maintenanceService.insertTable('usertype', userType).subscribe({
+    this.maintenanceService.insertTable('UserType', userType).subscribe({
       next: () => {
         console.log("add user type");
         console.log(userType);
@@ -303,7 +303,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('user type id is undefined');
       return;
     }
-    this.maintenanceService.deleteTable('usertype', userType.userTypeId).subscribe({
+    this.maintenanceService.deleteTable('UserType', userType.userTypeId).subscribe({
       next: () => {
         console.log('remove user type');
         console.log(userType);
@@ -321,7 +321,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('user type id is undefined');
       return;
     }
-    this.maintenanceService.updateTable('usertype', userType.userTypeId, userType).subscribe({
+    this.maintenanceService.updateTable('UserType', userType.userTypeId, userType).subscribe({
       next: () => {
         console.log('update user type');
         console.log(userType);
@@ -343,7 +343,7 @@ export class MaintenanceComponent implements OnInit {
     this.tableDataTable = false;
     this.eventTypeTable = false;
     this.logTable = false;
-    this.maintenanceService.getTable('storageplan').subscribe({
+    this.maintenanceService.getTable('StoragePlan').subscribe({
       next: (data) => {
         this.storagePlans = data as any;
       },
@@ -356,7 +356,7 @@ export class MaintenanceComponent implements OnInit {
   }
 
   addStoragePlan(storagePlan: StoragePlan) {
-    this.maintenanceService.insertTable('storageplan', storagePlan).subscribe({
+    this.maintenanceService.insertTable('StoragePlan', storagePlan).subscribe({
       next: () => {
         console.log("add storage plan");
         console.log(storagePlan);
@@ -374,7 +374,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('storage plan id is undefined');
       return;
     }
-    this.maintenanceService.deleteTable('storageplan', storagePlan.storagePlanId).subscribe({
+    this.maintenanceService.deleteTable('StoragePlan', storagePlan.storagePlanId).subscribe({
       next: () => {
         console.log('remove storage plan');
         console.log(storagePlan);
@@ -392,7 +392,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('storage plan id is undefined');
       return;
     }
-    this.maintenanceService.updateTable('storageplan', storagePlan.storagePlanId, storagePlan).subscribe({
+    this.maintenanceService.updateTable('StoragePlan', storagePlan.storagePlanId, storagePlan).subscribe({
       next: () => {
         console.log('update storage plan');
         console.log(storagePlan);
@@ -414,7 +414,7 @@ export class MaintenanceComponent implements OnInit {
     this.tableDataTable = false;
     this.eventTypeTable = true;
     this.logTable = false;
-    this.maintenanceService.getTable('eventtype').subscribe({
+    this.maintenanceService.getTable('EventType').subscribe({
       next: (data) => {
         this.eventTypes = data as any;
       },
@@ -427,7 +427,7 @@ export class MaintenanceComponent implements OnInit {
   }
 
   addEventType(eventType: EventType) {
-    this.maintenanceService.insertTable('eventtype', eventType).subscribe({
+    this.maintenanceService.insertTable('EventType', eventType).subscribe({
       next: () => {
         console.log("add event type");
         console.log(eventType);
@@ -445,7 +445,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('event type id is undefined');
       return;
     }
-    this.maintenanceService.deleteTable('eventtype', eventType.eventTypeId).subscribe({
+    this.maintenanceService.deleteTable('EventType', eventType.eventTypeId).subscribe({
       next: () => {
         console.log('remove event type');
         console.log(eventType);
@@ -463,7 +463,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('event type id is undefined');
       return;
     }
-    this.maintenanceService.updateTable('eventtype', eventType.eventTypeId, eventType).subscribe({
+    this.maintenanceService.updateTable('EventType', eventType.eventTypeId, eventType).subscribe({
       next: () => {
         console.log('update event type');
         console.log(eventType);
@@ -485,7 +485,7 @@ export class MaintenanceComponent implements OnInit {
     this.tableDataTable = true;
     this.eventTypeTable = false;
     this.logTable = false;
-    this.maintenanceService.getTable('tabledata').subscribe({
+    this.maintenanceService.getTable('TableData').subscribe({
       next: (data) => {
         this.tableData = data as any;
       },
@@ -498,7 +498,7 @@ export class MaintenanceComponent implements OnInit {
   }
 
   addTableData(tableData: TableData) {
-    this.maintenanceService.insertTable('tabledata', tableData).subscribe({
+    this.maintenanceService.insertTable('TableData', tableData).subscribe({
       next: () => {
         console.log("add table data");
         console.log(tableData);
@@ -516,7 +516,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('table data id is undefined');
       return;
     }
-    this.maintenanceService.deleteTable('tabledata', tableData.tableDataId).subscribe({
+    this.maintenanceService.deleteTable('TableData', tableData.tableDataId).subscribe({
       next: () => {
         console.log('remove table data');
         console.log(tableData);
@@ -534,7 +534,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('table data id is undefined');
       return;
     }
-    this.maintenanceService.updateTable('tabledata', tableData.tableDataId, tableData).subscribe({
+    this.maintenanceService.updateTable('TableData', tableData.tableDataId, tableData).subscribe({
       next: () => {
         console.log('update table data');
         console.log(tableData);
@@ -556,7 +556,7 @@ export class MaintenanceComponent implements OnInit {
     this.tableDataTable = false;
     this.eventTypeTable = false;
     this.logTable = true;
-    this.maintenanceService.getTable('log').subscribe({
+    this.maintenanceService.getTable('Log').subscribe({
       next: (data) => {
         this.logs = data as any;
       },
@@ -569,7 +569,7 @@ export class MaintenanceComponent implements OnInit {
   }
 
   addLog(log: Log) {
-    this.maintenanceService.insertTable('log', log).subscribe({
+    this.maintenanceService.insertTable('Log', log).subscribe({
       next: () => {
         console.log("add log");
         console.log(log);
@@ -587,7 +587,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('log id is undefined');
       return;
     }
-    this.maintenanceService.deleteTable('log', log.logId).subscribe({
+    this.maintenanceService.deleteTable('Log', log.logId).subscribe({
       next: () => {
         console.log('remove log');
         console.log(log);
@@ -605,7 +605,7 @@ export class MaintenanceComponent implements OnInit {
       console.log('log id is undefined');
       return;
     }
-    this.maintenanceService.updateTable('log', log.logId, log).subscribe({
+    this.maintenanceService.updateTable('Log', log.logId, log).subscribe({
       next: () => {
         console.log('update log');
         console.log(log);
