@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Cards - Tarjetas con efecto Hover</title>
-	<link rel="stylesheet" href="interfaz-plan.component.css">
-</head>
-<body>
-
 <div class="title-cards">
 		<h2>Haz tu suscripción a PicSpace y mantén organizadas tus fotos en la nube</h2>
 	</div>
@@ -24,7 +14,7 @@
 		<dt style="line-height: 200%">Descarga tus fotos cuando quieras</dt>
 		<dt></dt>
 		<dt>DURANTE 15 DÍAS PUEDES PROBAR NUESTRO SERVICIO DE MANERA GRATUITA</dt>
-        <a routerLink="/gallery">Ir a Galería</a>
+        <a (click)="getplan()">Ir a Galería</a>
 	</div>
 </div>
 
@@ -37,11 +27,8 @@
 		<dt style="line-height: 150%">Aprovecha y disfruta nuestro servicio de almacenamiento por una suscripcion mensual 
 			en la que podrás almacenar tus fotos personales y descargarlas cuando quieras,
 		solo tienes que renovar tu suscripción mensual. Aceptamos pagos en Paypal y con Tarjetas de Crédito</dt>
-        <a routerLink="/hacer-pago">Suscribirme</a>
+        <a (click)="getplan()">Suscribirme</a>
         
 	</div>
 </div>
 </div>
-
-</body>
-</html>

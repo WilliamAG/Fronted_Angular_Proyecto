@@ -61,7 +61,7 @@ export class RegisterComponent implements OnInit {
         console.log(res);
         this.cookieService.set('token', res.token);
         localStorage.setItem('user', JSON.stringify(res.usr));
-        this.router.navigate(['/gallery']);
+        this.router.navigate(['/plan']);
       },
       error: (error) => {
         console.log(error);
