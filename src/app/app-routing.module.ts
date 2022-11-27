@@ -11,6 +11,7 @@ import { DashboardComponent } from "./pages/dashboard/dashboard.component";
 import { InterfazPlanComponent } from './pages/interfaz-plan/interfaz-plan.component';
 import { MaintenanceComponent } from './pages/maintenance/maintenance.component';
 import { RoleGuard } from './role.guard';
+import { PagoComponent } from './pages/pago/pago.component';
 
 const routes: Routes = [
   {
@@ -45,8 +46,12 @@ const routes: Routes = [
     canActivate: [AuthGuard, RoleGuard],
   },
   { 
-    path: 'plan', 
+    path: 'interfaz-plan', 
     component: InterfazPlanComponent
+  },
+  { 
+    path: 'pago', 
+    component: PagoComponent
   },
   {
     path: ROUTES.ADMIN.MAINTENANCE,
